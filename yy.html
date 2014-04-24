@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+ <link rel="stylesheet" href="leaflet.css" />
+  <script src="leaflet.js"></script>
+</head>
+<body>
+<div id="map"></div>
+<script type="text/javascript">
+	var map = L.map('map').setView([30.67, 104.06], 13);
+
+	// add an OpenStreetMap tile layer
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+
+	// add a marker in the given location, attach some popup content to it and open the popup
+	L.marker([30.67, 104.06]).addTo(map)
+    .bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
+    .openPopup();
+	
+	var circle = L.circle([30, 116], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+}).addTo(map);
+	</script>
+</body>
+</html>
